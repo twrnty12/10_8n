@@ -61,10 +61,19 @@ void DataBase::RequestToDB(QString request)
     }
     else
     {
+       //Было
+        //modelQuery->setQuery(request, *dataBase);
+        //modelQuery->setHeaderData(0, Qt::Horizontal, QObject::tr("Название фильма"));
+        //modelQuery->setHeaderData(1, Qt::Horizontal, QObject::tr("Описание фильма"));
+        //emit sig_SendQueryFromDB(modelQuery);
+
+        //Стало
+        QString request = "SELECT Название_фильма, Описание_фильма FROM film";
         modelQuery->setQuery(request, *dataBase);
         modelQuery->setHeaderData(0, Qt::Horizontal, QObject::tr("Название фильма"));
         modelQuery->setHeaderData(1, Qt::Horizontal, QObject::tr("Описание фильма"));
         emit sig_SendQueryFromDB(modelQuery);
+        
     }
 }
 
